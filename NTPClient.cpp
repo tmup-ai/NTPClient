@@ -20,6 +20,8 @@
  */
 
 #include "NTPClient.h"
+#include <cstdlib>
+#include <cstring>
 
 NTPClient::NTPClient(UDP& udp) {
   this->_udp            = &udp;
@@ -194,6 +196,12 @@ unsigned long NTPClient::getEpochTime() const {
   return this->_timeOffset + // User offset
          this->_currentEpoc + // Epoc returned by the NTP server
          ((millis() - this->_lastUpdate + this->_current_epoc_dec*1000)/1000.0); // Time since last update
+}
+
+unsigned long NTPClient::getEpochTimeMs() const {
+  return 1000*this->_timeOffset + // User offset
+      1000*this->_currentEpoc + // Epoc returned by the NTP server
+      (millis() - this->_lastUpdate + this->_current_epoc_dec*1000); // Time since last update
 }
 
 float NTPClient::get_millis() const{

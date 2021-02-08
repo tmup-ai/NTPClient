@@ -116,6 +116,10 @@ class NTPClient {
      * @return time in seconds since Jan. 1, 1970
      */
     unsigned long getEpochTime() const;
+    /**
+     * @return time in milliseconds since Jan. 1, 1970
+     */
+    unsigned long getEpochTimeMs() const;
 
     /**
      * @return ms of this second, in ms
