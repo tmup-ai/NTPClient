@@ -198,14 +198,14 @@ unsigned long NTPClient::getEpochTime() const {
          ((millis() - this->_lastUpdate + this->_current_epoc_dec*1000)/1000.0); // Time since last update
 }
 
-float NTPClient::getEpochTimeMs() const {
-  return float(this->getEpochTime()) + this->get_millis / 1000;
-}
-
 float NTPClient::get_millis() const{
   float ms = millis() - this->_lastUpdate + this->_current_epoc_dec*1000.0;
   ms-=(int)(ms/1000)*1000;
   return ms;
+}
+
+float NTPClient::getEpochTimeMs() const {
+  return float(this->getEpochTime()) + this->get_millis / 1000;
 }
 
 int NTPClient::getDay() const {
