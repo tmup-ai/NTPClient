@@ -119,7 +119,7 @@ class NTPClient {
     /**
      * @return time in milliseconds since Jan. 1, 1970
      */
-    unsigned long getEpochTimeMs() const;
+    float getEpochTimeMs() const;
 
     /**
      * @return ms of this second, in ms

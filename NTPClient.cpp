@@ -198,10 +198,8 @@ unsigned long NTPClient::getEpochTime() const {
          ((millis() - this->_lastUpdate + this->_current_epoc_dec*1000)/1000.0); // Time since last update
 }
 
-unsigned long NTPClient::getEpochTimeMs() const {
-  return 1000*this->_timeOffset + // User offset
-      1000*this->_currentEpoc + // Epoc returned by the NTP server
-      (millis() - this->_lastUpdate + this->_current_epoc_dec*1000); // Time since last update
+float NTPClient::getEpochTimeMs() const {
+  return float(this->getEpochTime()) + this->get_millis / 1000;
 }
 
 float NTPClient::get_millis() const{
