@@ -205,7 +205,7 @@ float NTPClient::get_millis() const{
 }
 
 float NTPClient::getEpochTimeMs() const {
-  return float(this->getEpochTime()) + this->get_millis / 1000;
+  return float(this->getEpochTime()) + this->get_millis() / 1000;
 }
 
 int NTPClient::getDay() const {
